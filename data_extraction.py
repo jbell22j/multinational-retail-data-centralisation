@@ -32,10 +32,13 @@ class DataExtractor:
         df=df.set_index('index')
         return df
     
-    def extract_from_s3(self):
+    def extract_from_s3(self,bucket,filename,localfilename):
         s3 = boto3.resource('s3')
-        s3.Bucket('data-handling-public').download_file('date_details.json','my_local_json.json')
-        df = pd.read_json('my_local_json.json')
+        s3.Bucket(bucket).download_file(filename,localfilename)
+        if '.json' in filename:
+            df = pd.read_json(localfilename)
+        else:
+            df = pd.read_csv(localfilename,index_col=0)
         return df
         
 
