@@ -9,5 +9,6 @@ FROM (SELECT product_price,
 INNER JOIN dim_date_times
 ON dim_date_times.date_uuid = product_orders.date_uuid
 GROUP BY month
+ORDER BY total_sales DESC
 LIMIT 6;
 
