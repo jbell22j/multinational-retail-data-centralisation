@@ -43,12 +43,17 @@ rds_database_engine = main_instance.init_db_engine(rds_database_credentials)
 extract = data_extraction.DataExtractor()
 clean_data = data_cleaning.DataCleaning()
 
-#user_df = extract.read_rds_table('legacy_users',rds_database_engine)
+user_df = extract.read_rds_table('legacy_users',rds_database_engine)
+
+print(type(user_df))
 #clean_user_df = clean_data.clean_user_data(user_df)
 
 
 #orders_df = extract.read_rds_table('orders_table',rds_database_engine)
+#print(orders_df['store_code'])
+
 #clean_orders_data = clean_data.clean_orders_data(orders_df)
+#print(clean_orders_data['store_code'])
 
 #card_df = extract.retrieve_pdf_data('https://data-handling-public.s3.eu-west-1.amazonaws.com/card_details.pdf')
 #clean_card_df = clean_data.clean_card_data(card_df)
@@ -62,16 +67,9 @@ number_of_stores = extract.list_number_of_stores(url,header)
 #stores_data = extract.retrieve_stores_data("https://aqj7u5id95.execute-api.eu-west-1.amazonaws.com/prod/store_details/{}",header)
 #clean_stores_data = clean_data.clean_store_data(stores_data)
 
-products_data = extract.extract_from_s3('data-handling-public','products.csv','local_products.csv')
-products_data_main = clean_data.convert_product_weights(products_data)
-
-xx = products_data_main.copy()
-print(xx[xx.product_code.astype(str) == 'f7-6864343R'].EAN)
-
-clean_products_data = clean_data.clean_products_data(products_data_main)
-
-x = clean_products_data.copy()
-print(x[x.product_code.astype(str) == 'f7-6864343R'])
+#products_data = extract.extract_from_s3('data-handling-public','products.csv','local_products.csv')
+#products_data_main = clean_data.convert_product_weights(products_data)
+#clean_products_data = clean_data.clean_products_data(products_data_main)
 
 #date_details_data = extract.extract_from_s3('data-handling-public','date_details.json','local_date_details.json')
 #clean_date_data = clean_data.clean_date_data(date_details_data)
@@ -84,6 +82,6 @@ my_sql_instance_engine = my_sql_instance.init_db_engine(my_sql_instance_dict)
 #my_sql_instance.upload_to_db(clean_user_df,'dim_users',my_sql_instance_engine)
 #my_sql_instance.upload_to_db(clean_card_df,'dim_card_details',my_sql_instance_engine)
 #my_sql_instance.upload_to_db(clean_stores_data,'dim_store_details',my_sql_instance_engine)
-my_sql_instance.upload_to_db(clean_products_data,'dim_products',my_sql_instance_engine)
-#my_sql_instance.upload_to_db(clean_orders_data,'orders_table',my_sql_instance_engine)
+#my_sql_instance.upload_to_db(clean_products_data,'dim_products',my_sql_instance_engine)
+my_sql_instance.upload_to_db(clean_orders_data,'orders_table',my_sql_instance_engine)
 #my_sql_instance.upload_to_db(clean_date_data,'dim_date_times',my_sql_instance_engine)

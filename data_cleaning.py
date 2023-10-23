@@ -74,9 +74,9 @@ class DataCleaning():
         df = orders_dataframe.copy()
         df = df.drop(['level_0'],axis=1)
         df = df.drop(['1'],axis=1)
-        df = df.dropna()
         df = df.drop(['first_name'],axis=1)
         df = df.drop(['last_name'],axis=1)
+        df = df.dropna()
         df = df[df.product_quantity.astype(str).str.isnumeric()]
         df = df[df['date_uuid'].str.len() == 36]
         df = df[df['user_uuid'].str.len() == 36]
