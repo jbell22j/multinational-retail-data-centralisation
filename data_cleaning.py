@@ -1,11 +1,35 @@
-import numpy as np
 import pandas as pd
-from datetime import datetime
-import string
+
 
 class DataCleaning():
+     
+     '''
+    This class is used for cleaning of our dataframes.
+
+    Attributes:
+        N/A
+     '''
     
-    def clean_user_data(self,dataframe):
+    
+     def clean_user_data(self,dataframe):
+        '''
+        This function is to clean the data from the user dataframe.
+        Cleaning includes :
+            - Checking formatting errors in datetime columns.
+            - Dropping null values.
+            - Dropping duplicate columns except for the first occurence.
+            - Checking email address formatting.
+            - Checking country code and user uuid are the correct length.
+            - Removing any invalid non-numerical characters from phone number.
+            - Correcting capitalisation issues.
+
+        Parameters:
+            dataframe (pandas.core.frame.DataFrame)
+
+        Returns:
+        -------
+        New dataframe following the data cleaning process. (pandas.core.frame.DataFrame)
+        '''
         df = dataframe.dropna(how = 'any')
         df['date_of_birth'] = df['date_of_birth'].values.astype(str)
         df['join_date'] = df['join_date'].values.astype(str)
@@ -27,7 +51,22 @@ class DataCleaning():
         df = df.dropna(how = 'any')
         return df
     
-    def clean_card_data(self,dataframe):
+     def clean_card_data(self,dataframe):
+        '''
+        This function is to clean the data from the card dataframe.
+        Cleaning includes :
+            - Checking formatting errors in datetime columns.
+            - Dropping null values.
+            - Dropping duplicate columns except for the first occurence.
+            - Checking expiry date and card number are the correct length.
+
+        Parameters:
+            dataframe (pandas.core.frame.DataFrame)
+
+        Returns:
+        -------
+        New dataframe following the data cleaning process. (pandas.core.frame.DataFrame)
+        '''
         df = dataframe.dropna(how = 'any')
         df = df.drop_duplicates(subset=['card_number'])
         df['card_number'] = df.card_number.str.replace('?', '')
@@ -37,7 +76,25 @@ class DataCleaning():
         df = df[df['card_number'].astype(str).str.len() < 20]
         return df
     
-    def clean_store_data(self,dataframe):
+     def clean_store_data(self,dataframe):
+        '''
+        This function is to clean the data from the store dataframe.
+        Cleaning includes :
+            - Checking formatting errors in datetime columns.
+            - Dropping null values.
+            - Dropping duplicate columns except for the first occurence.
+            - Checking email address formatting.
+            - Checking country code is the correct length.
+            - Removing any invalid non-numerical characters from staff numbers column.
+            - Correcting capitalisation issues.
+
+        Parameters:
+            dataframe (pandas.core.frame.DataFrame)
+
+        Returns:
+        -------
+        New dataframe following the data cleaning process. (pandas.core.frame.DataFrame)
+        '''
         df = dataframe.dropna(thresh = 7)
         df = df.drop_duplicates()
         df['address']=df['address'].str.title()
@@ -49,7 +106,17 @@ class DataCleaning():
         df = df[df['country_code'].str.len() == 2]
         return df
     
-    def convert_product_weights(self,products_dataframe):
+     def convert_product_weights(self,products_dataframe):
+        '''
+        This function is to convert the weights from the products dataframe all into kg.
+
+        Parameters:
+            dataframe (pandas.core.frame.DataFrame)
+
+        Returns:
+        -------
+        New dataframe following the weight column conversion process. (pandas.core.frame.DataFrame)
+        '''
         units = {'g': 0.001, 'ml':0.001, 'kg': 1}
         df = products_dataframe.copy()
         df['numbers'] = df['weight'].str.extract('^([-\d\.,\s]+)').astype(float)
@@ -59,7 +126,24 @@ class DataCleaning():
         products_dataframe['weight'] = df['weight']
         return products_dataframe
     
-    def clean_products_data(self,products_dataframe):
+     def clean_products_data(self,products_dataframe):
+        '''
+        This function is to clean the data from the products dataframe.
+        Cleaning includes :
+            - Checking formatting errors in datetime columns.
+            - Dropping null values.
+            - Dropping duplicate columns except for the first occurence.
+            - Checking EAN and uuid are the correct length.
+            - Removing any invalid non-numerical characters from phone number.
+            - Correcting capitalisation and spelling errors.
+
+        Parameters:
+            dataframe (pandas.core.frame.DataFrame)
+
+        Returns:
+        -------
+        New dataframe following the data cleaning process. (pandas.core.frame.DataFrame)
+        '''
         df = products_dataframe.copy()
         df = df.dropna(how = 'any')
         df = df[df.EAN.astype(str).apply(lambda x: len(x) > 5 )]
@@ -70,19 +154,49 @@ class DataCleaning():
         df = df.dropna(how = 'any')
         return df
     
-    def clean_orders_data(self,orders_dataframe):
+     def clean_orders_data(self,orders_dataframe):
+        '''
+        This function is to clean the data from the orders dataframe.
+        Cleaning includes :
+            - Dropping unnecessary columns.
+            - Dropping null values.
+            - Dropping duplicate columns except for the first occurence.
+            - Checking date_uuid and user uuid are the correct length.
+            - Checking product quantity column only contains numerical values.
+
+        Parameters:
+            dataframe (pandas.core.frame.DataFrame)
+
+        Returns:
+        -------
+        New dataframe following the data cleaning process. (pandas.core.frame.DataFrame)
+        '''
         df = orders_dataframe.copy()
         df = df.drop(['level_0'],axis=1)
         df = df.drop(['1'],axis=1)
         df = df.drop(['first_name'],axis=1)
         df = df.drop(['last_name'],axis=1)
+        df = df.drop_duplicates()
         df = df.dropna()
         df = df[df.product_quantity.astype(str).str.isnumeric()]
         df = df[df['date_uuid'].str.len() == 36]
         df = df[df['user_uuid'].str.len() == 36]
         return df
     
-    def clean_date_data(self,date_dataframe):
+     def clean_date_data(self,date_dataframe):
+        '''
+        This function is to clean the data from the orders dataframe.
+        Cleaning includes :
+            - Dropping null values.
+            - Checking date_uuid and year columns are the correct length.
+
+        Parameters:
+            dataframe (pandas.core.frame.DataFrame)
+
+        Returns:
+        -------
+        New dataframe following the data cleaning process. (pandas.core.frame.DataFrame)
+        '''
         df = date_dataframe.copy()
         df = df.dropna(how = 'any')
         df = df[df['year'].str.len() == 4]
