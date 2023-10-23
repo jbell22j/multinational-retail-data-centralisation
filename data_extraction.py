@@ -10,7 +10,7 @@ class DataExtractor:
 
     Attributes:
         N/A
-     '''
+    '''
     
     def read_rds_table(self,table_name,engine):
         '''
@@ -52,7 +52,7 @@ class DataExtractor:
 
         Returns:
         -------
-        N/A
+        None
         '''
         response = requests.get(api_endpoint, headers=header)
         res = response.json()
