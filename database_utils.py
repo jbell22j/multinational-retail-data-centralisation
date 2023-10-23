@@ -40,12 +40,12 @@ rds_database_credentials = main_instance.read_db_creds()
 rds_database_engine = main_instance.init_db_engine(rds_database_credentials)
 #main_instance.list_db_tables(rds_database_engine)
 
+print(type(rds_database_engine))
+
 extract = data_extraction.DataExtractor()
 clean_data = data_cleaning.DataCleaning()
 
-user_df = extract.read_rds_table('legacy_users',rds_database_engine)
-
-print(type(user_df))
+#user_df = extract.read_rds_table('legacy_users',rds_database_engine)
 #clean_user_df = clean_data.clean_user_data(user_df)
 
 
@@ -83,5 +83,5 @@ my_sql_instance_engine = my_sql_instance.init_db_engine(my_sql_instance_dict)
 #my_sql_instance.upload_to_db(clean_card_df,'dim_card_details',my_sql_instance_engine)
 #my_sql_instance.upload_to_db(clean_stores_data,'dim_store_details',my_sql_instance_engine)
 #my_sql_instance.upload_to_db(clean_products_data,'dim_products',my_sql_instance_engine)
-my_sql_instance.upload_to_db(clean_orders_data,'orders_table',my_sql_instance_engine)
+#my_sql_instance.upload_to_db(clean_orders_data,'orders_table',my_sql_instance_engine)
 #my_sql_instance.upload_to_db(clean_date_data,'dim_date_times',my_sql_instance_engine)
