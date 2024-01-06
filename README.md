@@ -2,14 +2,15 @@
 
 ## Table of Contents
 
-- Introduction
+- [Project Brief](#brief)
 - Project Aims
 - Project Outcomes
 - Key Tools
 - Instructions
 - File Structure
 
-## Introduction
+ <a id="brief"></a>
+## Project Brief
 
 Extracting multinational retail sales data, cleaning the data where necessary and uploading to an SQL database to provide insightful data analysis.
 
