@@ -3,33 +3,25 @@
 ## Table of Contents
 
 - [Project Brief](#brief)
-- Project Aims
-- Project Outcomes
-- Key Tools
-- Instructions
-- File Structure
+- [Tools Utilised](#tools)
+- [Instructions](#instruct)
+- [File Structure](#structure)
 
- <a id="brief"></a>
+<a id="brief"></a>
 ## Project Brief
+The project aim was to create a multinational retail sales database using data extracted from different locations including SQL, AWS (s3-bucket), pdf weblinks and API. Extracting the information using python functions to transform the data into pandas dataframes. Data cleaning functions to be implemented to clean each dataframe individually where necessary, including removing missing values or unnecessary columns, incorrectly inputted values to be fixed (length,invalid characters) and datetime data to be formatted correctly. Once cleaned the dataframes can be uploaded to SQL to create a database, datatypes can then be correctly formatted, further data cleaning where necessary in SQL as well as setting primary and foreign keys to create a star-based schema linking the dataframes to allow for analysis in SQL.
 
-Extracting multinational retail sales data, cleaning the data where necessary and uploading to an SQL database to provide insightful data analysis.
-
-## Project Aims
-
-The projects aim was to create a multinational retail sales database using data extracted from different locations including SQL, AWS (s3-bucket), pdf weblinks and API. Extracting the information using python functions to transform the data into pandas dataframes. Data cleaning functions to be implemented to clean each dataframe individually where necessary, including removing missing values or unnecessary columns, incorrectly inputted values to be fixed (length,invalid characters) and datetime data to be formatted correctly. Once cleaned the dataframes can be uploaded to SQL to create a database, datatypes can then be correctly formatted, further data cleaning where necessary in SQL as well as setting primary and foreign keys to create a star-based schema linking the dataframes to allow for analysis in SQL.
-
-## Project Outcomes
-
-Created a star-based schema database for the multinational retail sales data given and used this to query the data providing insightful analysis to help the company.
-
-## Key Tools
+ <a id="tools"></a>
+## Tools Utilised
 
 Python, SQL, AWS, API, boto3, requests, tabula, sqlalchemy, yaml, pandas
 
+ <a id="instruct"></a>
 ## Instructions
 
 - The functions implemented can be used to replicate the retail sales database in your own SQL, or can be used to create your own database from pdf weblinks, files in s3-buckets using AWS, an API or SQL dataframes.
 
+ <a id="structure"></a>
 ## File Structure
 
 The files data_cleaning.py, data_extraction.py and database_utils.py contain the functions to create a database in your SQL. The sql_files folder contains the SQL queries used to query the retail sales database but could also provide insight to query your own database.
