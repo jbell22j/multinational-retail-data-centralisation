@@ -5,7 +5,6 @@
 - [Project Brief](#brief)
 - [Project Dependencies](#depend)
 - [Tools Utilised](#tools)
-- [Instructions](#instruct)
 - [File Structure](#structure)
 
 <a id="brief"></a>
@@ -27,15 +26,28 @@ It's important to mention that the pipeline cannot function as it is without acc
 
  <a id="tools"></a>
 ## Tools Utilised
+### SQLAlchemy
+[SQL Alchemy](https://www.sqlalchemy.org/) was used to connect to the local SQL and AWS databases in `database_utils.py`.
 
+### pandas
+[pandas](https://pandas.pydata.org/) is an open source data analysis and manipulation built ontop of Python.
 
+### PyYAML
+[PyYAML](https://pyyaml.org/wiki/PyYAMLDocumentation) was used to read the YAML files where the credentials for the databases are stored and load the contents into dictionaries.
 
- <a id="instruct"></a>
-## Instructions
+### Tabula
+[Tabula](https://tabula-py.readthedocs.io/en/latest/#) is a tool used to read tables from pdf files and convert them to a pandas dataframe or CSV/JSON/TSV file.
 
-- The functions implemented can be used to replicate the retail sales database in your own SQL, or can be used to create your own database from pdf weblinks, files in s3-buckets using AWS, an API or SQL dataframes.
+### Requests
+[Requests](https://pypi.org/project/requests/) is used to make HTTPS GET requests to connect to API endpoints.
 
- <a id="structure"></a>
+<a id="structure"></a>
 ## File Structure
 
-The files data_cleaning.py, data_extraction.py and database_utils.py contain the functions to create a database in your SQL. The sql_files folder contains the SQL queries used to query the retail sales database but could also provide insight to query your own database.
+The project consists of three main classes:
+* `DataCleaning` in `data_cleaning.py` - contains methods for cleaning individual pandas dataframes.
+* `DataExtractor` in `data_extraction.py` - contains methods to extract data from various sources.
+* `DatabaseConnector` in `database_utils.py` - contains methods to connect and upload to SQL databases.
+Together these contain the functions to create a database in SQL.
+
+The sql_files folder contains the SQL queries used to query the retail sales database but could also provide insight to query your own database.
