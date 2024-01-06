@@ -21,13 +21,14 @@ In order to run this project, the following modules need to be installed:
 * `pandas`
 * `requests`
 * `tabula-py`
+* `PyYAML`
 
 It's important to mention that the pipeline cannot function as it is without access to the AWS credentials or API key. However, modifications to API endpoints will allow the DatabaseConnector and DataExtractor classes to operate successfully with alternative data sources.
 
  <a id="tools"></a>
 ## Tools Utilised
 
-Python, SQL, AWS, API, boto3, requests, tabula, sqlalchemy, yaml, pandas
+
 
  <a id="instruct"></a>
 ## Instructions
