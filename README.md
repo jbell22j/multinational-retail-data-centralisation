@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Project Brief](#brief)
+- [Project Dependencies](#depend)
 - [Tools Utilised](#tools)
 - [Instructions](#instruct)
 - [File Structure](#structure)
@@ -10,6 +11,18 @@
 <a id="brief"></a>
 ## Project Brief
 The project aim was to create a multinational retail sales database using data extracted from different locations including SQL, AWS (s3-bucket), pdf weblinks and API. Extracting the information using python functions to transform the data into pandas dataframes. Data cleaning functions to be implemented to clean each dataframe individually where necessary, including removing missing values or unnecessary columns, incorrectly inputted values to be fixed (length,invalid characters) and datetime data to be formatted correctly. Once cleaned the dataframes can be uploaded to SQL to create a database, datatypes can then be correctly formatted, further data cleaning where necessary in SQL as well as setting primary and foreign keys to create a star-based schema linking the dataframes to allow for analysis in SQL.
+
+<a id="depend"></a>
+## Project Dependencies
+
+In order to run this project, the following modules need to be installed:
+
+* `sqlalchemy`#
+* `pandas`
+* `requests`
+* `tabula-py`
+
+It's important to mention that the pipeline cannot function as it is without access to the AWS credentials or API key. However, modifications to API endpoints will allow the DatabaseConnector and DataExtractor classes to operate successfully with alternative data sources.
 
  <a id="tools"></a>
 ## Tools Utilised
