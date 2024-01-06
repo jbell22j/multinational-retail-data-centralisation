@@ -17,7 +17,7 @@ The project aim was to create a multinational retail sales database using data e
 
 In order to run this project, the following modules need to be installed:
 
-* `sqlalchemy`#
+* `sqlalchemy`
 * `pandas`
 * `requests`
 * `tabula-py`
