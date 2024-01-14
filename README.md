@@ -56,4 +56,6 @@ The project consists of three main classes:
 * `DatabaseConnector` in `database_utils.py` - contains methods to connect and upload to SQL databases.
 Together these contain the functions to create a database in SQL.
 
+<img width="512" alt="image" src="https://github.com/jbell22j/multinational-retail-data-centralisation/assets/141024595/7226458f-9c40-460f-ab97-dd5c2a20c762">
+
 The sql_files folder contains the SQL queries used to query and alter the retail sales database. `total_staff_per_country.sql` is an example of a querying SQL file and `altering_dim_store_details_column_datatypes.sql` is an example of an SQL file that alters the SQL database.
