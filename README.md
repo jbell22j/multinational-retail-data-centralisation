@@ -50,6 +50,9 @@ The project consists of three main classes:
 <img width="427" alt="image" src="https://github.com/jbell22j/multinational-retail-data-centralisation/assets/141024595/ee4cb94e-e1aa-40ad-9431-a162db6e1810">
 
 * `DataExtractor` in `data_extraction.py` - contains methods to extract data from various sources.
+
+<img width="424" alt="image" src="https://github.com/jbell22j/multinational-retail-data-centralisation/assets/141024595/d37c04b5-b1b2-47eb-906f-4f8bf3ec7f5e">
+
 * `DatabaseConnector` in `database_utils.py` - contains methods to connect and upload to SQL databases.
 Together these contain the functions to create a database in SQL.
 
