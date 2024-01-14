@@ -46,6 +46,9 @@ It's important to mention that the pipeline cannot function as it is without acc
 
 The project consists of three main classes:
 * `DataCleaning` in `data_cleaning.py` - contains methods for cleaning individual pandas dataframes.
+
+<img width="427" alt="image" src="https://github.com/jbell22j/multinational-retail-data-centralisation/assets/141024595/ee4cb94e-e1aa-40ad-9431-a162db6e1810">
+
 * `DataExtractor` in `data_extraction.py` - contains methods to extract data from various sources.
 * `DatabaseConnector` in `database_utils.py` - contains methods to connect and upload to SQL databases.
 Together these contain the functions to create a database in SQL.
