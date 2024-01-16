@@ -5,6 +5,8 @@
 - [Project Brief](#brief)
 - [Project Dependencies](#depend)
 - [Tools Utilised](#tools)
+- [Local Database Setup](#database)
+- [Connecting to Local Database using pgAdmin](#connect)
 - [File Structure](#structure)
 
 <a id="brief"></a>
@@ -54,6 +56,7 @@ where `db` is the directory containing the database files and postgres is the da
 The database can be started using:
 `postgres -D db`
 
+<a id="connect"></a>
 ## Connecting to Local Database using pgAdmin
 
 pgAdmin is used to connect to the local database. With pgAdmin installed and running, follow these steps to connect:
@@ -69,7 +72,8 @@ pgAdmin is used to connect to the local database. With pgAdmin installed and run
 The project consists of three main classes:
 * `DataCleaning` in `data_cleaning.py` - contains methods for cleaning individual pandas dataframes.
 
-<img width="427" alt="image" src="https://github.com/jbell22j/multinational-retail-data-centralisation/assets/141024595/ee4cb94e-e1aa-40ad-9431-a162db6e1810">
+<img width="576" alt="image" src="https://github.com/jbell22j/multinational-retail-data-centralisation/assets/141024595/f471753d-39be-416e-9ca4-32b27d5cd4b4">
+
 
 * `DataExtractor` in `data_extraction.py` - contains methods to extract data from various sources.
 
