@@ -41,6 +41,28 @@ It's important to mention that the pipeline cannot function as it is without acc
 ### Requests
 [Requests](https://pypi.org/project/requests/) is used to make HTTPS GET requests to connect to API endpoints.
 
+<a id="database"></a>
+## Local Database Setup
+
+A local Postgres database was set up to receive the cleaned data from the different sources. Postgres was installed globally using Homebrew:
+`brew install postgresql@14`
+
+The local database was created using the following command in the terminal:
+`initdb -D db -U postgres -W`
+where `db` is the directory containing the database files and postgres is the database username. The `-W` flag indicates that the database will be password protected and the user is prompted to enter the password upon running this command.
+
+The database can be started using:
+`postgres -D db`
+
+## Connecting to Local Database using pgAdmin
+
+pgAdmin is used to connect to the local database. With pgAdmin installed and running, follow these steps to connect:
+
+* On the main application page, click on 'Add New Server'.
+* On the 'General' tab of the dialogue that appears, enter a name for the new server connection.
+* On the 'Connection' tab, enter 'localhost' for the 'Host name/address', and enter the username and password specified when creating the database.
+* Click 'Save' to save the server and connect to the database.
+
 <a id="structure"></a>
 ## File Structure
 
