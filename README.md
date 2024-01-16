@@ -21,7 +21,7 @@ The different data sources that need to be extracted from and collected together
 * one table stored as a .csv file hosted on AWS S3
 * one table stored as a .json file hosted on AWD S3
 * a series of JSON objects available via an API
-* 
+
 The project aim was to create a multinational retail sales database using data extracted from different locations including SQL, AWS (s3-bucket), pdf weblinks and API. Extracting the information using python functions to transform the data into pandas dataframes. Data cleaning functions to be implemented to clean each dataframe individually where necessary, including removing missing values or unnecessary columns, incorrectly inputted values to be fixed (length,invalid characters) and datetime data to be formatted correctly. Once cleaned the dataframes can be uploaded to SQL to create a database, datatypes can then be correctly formatted, further data cleaning where necessary in SQL as well as setting primary and foreign keys to create a star-based schema linking the dataframes to allow for analysis in SQL.
 
 <a id="depend"></a>
