@@ -11,6 +11,17 @@
 
 <a id="brief"></a>
 ## Project Brief
+You work for a multinational company that sells various goods across the globe. Currently, their sales data is spread across many different data sources making it not easily accessible or analysable by current members of the team.
+In an effort to become more data-driven, your organisation would like to make its sales data accessible from one centralised location. Your first goal will be to produce a system that stores the current company data in a database so that it's accessed from one centralised location and acts as a single source of truth for sales data. You will then query the database to get up-to-date metrics for the business. 🌎
+
+The different data sources that need to be extracted from and collected together are:
+
+* two tables of an SQL database hosted on AWS RDS
+* one table stored as a .pdf file hosted on AWS S3
+* one table stored as a .csv file hosted on AWS S3
+* one table stored as a .json file hosted on AWD S3
+* a series of JSON objects available via an API
+* 
 The project aim was to create a multinational retail sales database using data extracted from different locations including SQL, AWS (s3-bucket), pdf weblinks and API. Extracting the information using python functions to transform the data into pandas dataframes. Data cleaning functions to be implemented to clean each dataframe individually where necessary, including removing missing values or unnecessary columns, incorrectly inputted values to be fixed (length,invalid characters) and datetime data to be formatted correctly. Once cleaned the dataframes can be uploaded to SQL to create a database, datatypes can then be correctly formatted, further data cleaning where necessary in SQL as well as setting primary and foreign keys to create a star-based schema linking the dataframes to allow for analysis in SQL.
 
 <a id="depend"></a>
